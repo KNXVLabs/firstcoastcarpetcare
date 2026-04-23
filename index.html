@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>First Coast Carpet Care | Modern Cleaning · Lasting Results · Healthier Home</title>
+  <meta name="description" content="Northeast Florida's fast-drying, eco-friendly carpet cleaning experts. Pet & kid safe. Starting at $120. Serving Fleming Island, Orange Park, Jacksonville & surrounding areas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #1a1a2e;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    /* ===== PALETTE ===== */
+    :root {
+      --navy:   #0d2d6b;
+      --navy-dark: #081e4a;
+      --gold:   #c9a227;
+      --gold-light: #e8bc3a;
+      --ocean:  #1a7fb5;
+      --green:  #2a7a35;
+      --sand:   #f5ede0;
+      --light:  #f8f9fc;
+      --text:   #1a1a2e;
+      --muted:  #5a6478;
+      --white:  #ffffff;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; line-height: 1.2; }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section-label {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 600px;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy-dark);
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(201,162,39,0.35); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.7);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; transform: translateY(-2px); }
+    .btn-navy {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .btn-navy:hover { background: var(--navy-dark); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(13,45,107,0.3); }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(13,45,107,0.1);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 54px;
+      width: auto;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ocean); }
+    .nav-cta { margin-left: 8px; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, #1a4a8a 100%);
+      display: flex;
+      align-items: center;
+      padding-top: 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-wave {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 80px 0;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,162,39,0.15);
+      border: 1px solid rgba(201,162,39,0.4);
+      border-radius: 100px;
+      padding: 6px 16px;
+      margin-bottom: 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+    }
+    .hero-badge span { font-size: 1rem; }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 20px;
+      max-width: 720px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold-light);
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.78);
+      max-width: 580px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 64px;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      border-left: 3px solid var(--gold);
+      padding-left: 16px;
+    }
+    .hero-stat strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+    }
+    .hero-stat span {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar {
+      background: var(--green);
+      padding: 14px 0;
+    }
+    .trust-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+    .trust-item .icon { font-size: 1.1rem; }
+
+    /* ===== WHY US ===== */
+    .why {
+      padding: 96px 0;
+      background: var(--light);
+    }
+    .why-header { margin-bottom: 56px; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+    .why-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 36px 28px;
+      border: 1px solid rgba(13,45,107,0.07);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .why-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(13,45,107,0.1); }
+    .why-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--navy), var(--ocean));
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+    .why-card h3 {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .why-card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .why-card .tag {
+      display: inline-block;
+      margin-top: 14px;
+      background: rgba(42,122,53,0.1);
+      color: var(--green);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    /* ===== PRICING ===== */
+    .pricing {
+      padding: 96px 0;
+      background: var(--white);
+    }
+    .pricing-header { margin-bottom: 56px; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+    .price-card {
+      border-radius: 14px;
+      padding: 40px 32px;
+      border: 2px solid rgba(13,45,107,0.1);
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .price-card:hover { transform: translateY(-4px); }
+    .price-card.featured {
+      border-color: var(--gold);
+      box-shadow: 0 8px 40px rgba(201,162,39,0.2);
+    }
+    .featured-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--navy-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 18px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .price-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .price-amount {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .price-amount sup { font-size: 1.4rem; vertical-align: super; }
+    .price-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .price-features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .price-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text);
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(13,45,107,0.06);
+    }
+    .price-features li:last-child { border-bottom: none; }
+    .price-features .check { color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .price-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how {
+      padding: 96px 0;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+    .how::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .how .section-title { color: var(--white); }
+    .how .section-sub { color: rgba(255,255,255,0.65); }
+    .how-header { margin-bottom: 56px; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .step {
+      text-align: center;
+      padding: 16px;
+    }
+    .step-num {
+      width: 64px;
+      height: 64px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--navy-dark);
+      margin: 0 auto 20px;
+    }
+    .step h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .step p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+    }
+    .step-icon { font-size: 1.4rem; margin-bottom: 4px; }
+
+    /* ===== ENCAP EXPLAINER ===== */
+    .encap {
+      padding: 80px 0;
+      background: var(--sand);
+    }
+    .encap-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .encap-visual {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px 32px;
+      border: 2px solid rgba(13,45,107,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .compare-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(13,45,107,0.07);
+    }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      min-width: 90px;
+    }
+    .compare-win {
+      flex: 1;
+      background: rgba(42,122,53,0.1);
+      color: var(--green);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    .compare-lose {
+      flex: 1;
+      background: rgba(90,100,120,0.07);
+      color: var(--muted);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      text-align: center;
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+    .compare-header {
+      display: flex;
+      gap: 16px;
+      padding-bottom: 12px;
+      margin-bottom: 4px;
+      border-bottom: 2px solid rgba(13,45,107,0.1);
+    }
+    .compare-header-label { min-width: 90px; }
+    .compare-header-col {
+      flex: 1;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: center;
+    }
+    .col-us { color: var(--green); }
+    .col-steam { color: var(--muted); }
+    .encap h2 { margin-bottom: 20px; }
+    .encap p { color: var(--muted); margin-bottom: 16px; line-height: 1.7; font-size: 0.95rem; }
+    .encap-tag {
+      display: inline-block;
+      background: rgba(42,122,53,0.1);
+      color: var(--green);
+      border: 1px solid rgba(42,122,53,0.3);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+
+    /* ===== SERVICE AREA ===== */
+    .area {
+      padding: 80px 0;
+      background: var(--white);
+      text-align: center;
+    }
+    .area-sub { margin: 0 auto 40px; }
+    .area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    .area-tag {
+      background: var(--light);
+      border: 1px solid rgba(13,45,107,0.12);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .area-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      padding: 96px 0;
+      background: var(--light);
+    }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact-info h2 { margin-bottom: 16px; }
+    .contact-info p { color: var(--muted); line-height: 1.7; margin-bottom: 36px; }
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .contact-detail-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--navy);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-detail-text strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+    .contact-detail-text span {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    .contact-form-wrap {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 48px 40px;
+      box-shadow: 0 4px 32px rgba(13,45,107,0.08);
+      border: 1px solid rgba(13,45,107,0.07);
+    }
+    .form-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 28px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 7px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid rgba(13,45,107,0.15);
+      border-radius: 8px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--ocean);
+      box-shadow: 0 0 0 3px rgba(26,127,181,0.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select { appearance: none; cursor: pointer; }
+    .form-submit { width: 100%; margin-top: 8px; font-size: 1rem; padding: 16px; }
+    .form-note { font-size: 0.78rem; color: var(--muted); text-align: center; margin-top: 12px; }
+    .form-success {
+      display: none;
+      background: rgba(42,122,53,0.08);
+      border: 1.5px solid rgba(42,122,53,0.3);
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .form-success p {
+      color: var(--green);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--navy-dark);
+      padding: 48px 0 28px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 28px;
+    }
+    .footer-brand img { height: 56px; margin-bottom: 16px; }
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-col ul li span { font-size: 0.88rem; color: rgba(255,255,255,0.55); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer-tagline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px; left: 0; right: 0;
+        background: var(--white);
+        padding: 20px 24px 28px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        border-top: 1px solid rgba(13,45,107,0.08);
+        gap: 16px;
+      }
+      .nav-links.open .nav-cta { margin-left: 0; }
+      .hamburger { display: flex; }
+      .hero h1 { font-size: 2rem; }
+      .hero-stats { gap: 24px; }
+      .encap-inner { grid-template-columns: 1fr; gap: 40px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .contact-form-wrap { padding: 32px 24px; }
+      .trust-inner { gap: 20px; }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="logo.jpeg" alt="First Coast Carpet Care" />
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#area">Service Area</a></li>
+        <li class="nav-cta"><a href="#contact" class="btn btn-gold">Get a Free Quote</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
+      <h1>Clean Carpets. <em>Dry in Hours,</em><br>Not Days.</h1>
+      <p>We use advanced encapsulation technology — carpets are fresh, dry, and ready to walk on in 1–2 hours. Eco-friendly, pet & kid safe, and priced to fit any home.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-gold">Book a Cleaning</a>
+        <a href="#pricing" class="btn btn-outline">See Pricing</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>1–2 hrs</strong>
+          <span>Dry time</span>
+        </div>
+        <div class="hero-stat">
+          <strong>$120</strong>
+          <span>Starting price</span>
+        </div>
+        <div class="hero-stat">
+          <strong>100%</strong>
+          <span>Eco-friendly solution</span>
+        </div>
+        <div class="hero-stat">
+          <strong>NE FL</strong>
+          <span>Service area</span>
+        </div>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#2a7a35"/>
+    </svg>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="container trust-inner">
+      <div class="trust-item"><span class="icon">🌿</span> Eco-Friendly Formula</div>
+      <div class="trust-item"><span class="icon">🐾</span> Pet & Kid Safe</div>
+      <div class="trust-item"><span class="icon">⚡</span> Fast Dry Time</div>
+      <div class="trust-item"><span class="icon">🏠</span> Residential & Light Commercial</div>
+      <div class="trust-item"><span class="icon">✅</span> Satisfaction Guaranteed</div>
+    </div>
+  </div>
+
+  <!-- WHY US -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="why-header reveal">
+        <span class="section-label">Why First Coast</span>
+        <h2 class="section-title">A Better Clean.<br>A Healthier Home.</h2>
+        <p class="section-sub">We built our service around what actually matters to families — fast drying, safe products, and results that last.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon">⚡</div>
+          <h3>Dry in 1–2 Hours</h3>
+          <p>Our encapsulation method uses low moisture — carpets are walkable fast. No waiting 24+ hours for steam-soaked floors to dry out.</p>
+          <span class="tag">vs. 24–48 hrs steam dry time</span>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon">🌿</div>
+          <h3>Eco & Family Safe</h3>
+          <p>Our cleaning solution is biodegradable, non-toxic, and carries no harsh chemical smell. Safe for children, pets, and anyone with allergies or sensitivities.</p>
+          <span class="tag">Green-certified formula</span>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-icon">🧬</div>
+          <h3>Healthier Air Quality</h3>
+          <p>Encapsulation lifts allergens, dust mites, and trapped debris from carpet fibers — improving the air your family breathes every day.</p>
+          <span class="tag">Allergen reduction</span>
+        </div>
+        <div class="why-card reveal reveal-delay-4">
+          <div class="why-icon">💎</div>
+          <h3>Longer Lasting Results</h3>
+          <p>Our formula encapsulates residue into crystals that are vacuumed away — carpets stay cleaner longer because there's no sticky residue left behind.</p>
+          <span class="tag">No residue buildup</span>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon">📍</div>
+          <h3>Local & Reliable</h3>
+          <p>Northeast Florida based. We show up on time, treat your home with respect, and get the job done right — every time.</p>
+          <span class="tag">Fleming Island · Jax · Orange Park</span>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon">💰</div>
+          <h3>Transparent Pricing</h3>
+          <p>No hidden fees, no upsells, no surprises. Flat-rate packages — you know exactly what you're paying before we arrive.</p>
+          <span class="tag">Starting at $120</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="pricing-header reveal">
+        <span class="section-label">Pricing</span>
+        <h2 class="section-title">Simple, Flat-Rate Packages</h2>
+        <p class="section-sub">No guessing. No surprise charges. Pick your package and we handle the rest.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card reveal reveal-delay-1">
+          <h3>Starter</h3>
+          <div class="price-amount"><sup>$</sup>120</div>
+          <p class="price-desc">Perfect for a quick refresh — living room + bedroom, or any 2 rooms.</p>
+          <ul class="price-features">
+            <li><span class="check">✓</span> Any 2 rooms of your choice</li>
+            <li><span class="check">✓</span> Encapsulation deep clean</li>
+            <li><span class="check">✓</span> Eco-friendly, pet-safe solution</li>
+            <li><span class="check">✓</span> Dry in 1–2 hours</li>
+            <li><span class="check">✓</span> No residue or sticky finish</li>
+          </ul>
+          <a href="#contact" class="btn btn-navy" style="width:100%;text-align:center;display:block;">Book Starter</a>
+        </div>
+        <div class="price-card featured reveal reveal-delay-2">
+          <div class="featured-badge">Most Popular</div>
+          <h3>Standard</h3>
+          <div class="price-amount"><sup>$</sup>135</div>
+          <p class="price-desc">The sweet spot — 3 rooms covers most living spaces comfortably.</p>
+          <ul class="price-features">
+            <li><span class="check">✓</span> Any 3 rooms of your choice</li>
+            <li><span class="check">✓</span> Encapsulation deep clean</li>
+            <li><span class="check">✓</span> Eco-friendly, pet-safe solution</li>
+            <li><span class="check">✓</span> Dry in 1–2 hours</li>
+            <li><span class="check">✓</span> No residue or sticky finish</li>
+            <li><span class="check">✓</span> Spot treatment included</li>
+          </ul>
+          <a href="#contact" class="btn btn-gold" style="width:100%;text-align:center;display:block;">Book Standard</a>
+        </div>
+        <div class="price-card reveal reveal-delay-3">
+          <h3>Whole Home</h3>
+          <div class="price-amount"><sup>$</sup>199</div>
+          <p class="price-desc">Full home refresh — every carpeted room, top to bottom.</p>
+          <ul class="price-features">
+            <li><span class="check">✓</span> Entire home (all carpeted rooms)</li>
+            <li><span class="check">✓</span> Encapsulation deep clean</li>
+            <li><span class="check">✓</span> Eco-friendly, pet-safe solution</li>
+            <li><span class="check">✓</span> Dry in 1–2 hours</li>
+            <li><span class="check">✓</span> No residue or sticky finish</li>
+            <li><span class="check">✓</span> Spot & stain treatment included</li>
+          </ul>
+          <a href="#contact" class="btn btn-navy" style="width:100%;text-align:center;display:block;">Book Whole Home</a>
+        </div>
+      </div>
+      <p class="price-note" style="text-align:center;margin-top:28px;color:var(--muted);font-size:0.83rem;">
+        Large or unusually soiled areas may be quoted separately. We'll always confirm pricing before we start.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="container">
+      <div class="how-header reveal">
+        <span class="section-label" style="color:var(--gold)">The Process</span>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">Three simple steps from booking to a fresh clean home.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal reveal-delay-1">
+          <div class="step-icon">📋</div>
+          <div class="step-num">1</div>
+          <h3>Book Online or by Text</h3>
+          <p>Fill out our quick contact form or send us a text. We'll confirm your appointment and answer any questions, usually within a few hours.</p>
+        </div>
+        <div class="step reveal reveal-delay-2">
+          <div class="step-icon">🚗</div>
+          <div class="step-num">2</div>
+          <h3>We Come to You</h3>
+          <p>Our technician arrives on time with all equipment. We pre-treat any spots, then apply our eco-friendly encapsulation solution throughout.</p>
+        </div>
+        <div class="step reveal reveal-delay-3">
+          <div class="step-icon">✨</div>
+          <div class="step-num">3</div>
+          <h3>Fresh & Dry Fast</h3>
+          <p>Carpets are clean and walkable in 1–2 hours. No soggy floors, no waiting overnight — just fresh, healthy carpet you can enjoy right away.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENCAP EXPLAINER -->
+  <section class="encap">
+    <div class="container encap-inner">
+      <div class="reveal">
+        <span class="encap-tag">Why Encapsulation?</span>
+        <h2 class="section-title">Not Your Typical Steam Clean</h2>
+        <p>Most carpet cleaning companies use hot water extraction (steam). It works, but it soaks your carpet — and a wet carpet for 24+ hours is a breeding ground for mildew, odors, and re-soiling.</p>
+        <p>Encapsulation uses a low-moisture polymeric formula that surrounds dirt particles, crystallizes them, and makes them easy to vacuum away. The result is a deeper clean that stays cleaner longer — without the downsides.</p>
+        <a href="#contact" class="btn btn-navy">Experience the Difference</a>
+      </div>
+      <div class="encap-visual reveal reveal-delay-2">
+        <div class="compare-header">
+          <div class="compare-header-label"></div>
+          <div class="compare-header-col col-us">Encapsulation ✓</div>
+          <div class="compare-header-col col-steam">Steam Clean</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label">Dry Time</div>
+          <div class="compare-win">1–2 hours</div>
+          <div class="compare-lose">24–48 hours</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label">Pet Safe</div>
+          <div class="compare-win">Yes, always</div>
+          <div class="compare-lose">Check chemicals</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label">Residue</div>
+          <div class="compare-win">None</div>
+          <div class="compare-lose">Sticky buildup</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label">Mildew Risk</div>
+          <div class="compare-win">Very low</div>
+          <div class="compare-lose">Higher risk</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label">Results Last</div>
+          <div class="compare-win">Longer</div>
+          <div class="compare-lose">Re-soils faster</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label">Eco-Friendly</div>
+          <div class="compare-win">Yes</div>
+          <div class="compare-lose">Varies</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="area" id="area">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Where We Serve</span>
+        <h2 class="section-title">Proudly Serving Northeast Florida</h2>
+        <p class="section-sub area-sub">Based in the 32043 area — we travel throughout the region. Not sure if we cover your area? Just ask us.</p>
+      </div>
+      <div class="area-tags reveal">
+        <span class="area-tag">Fleming Island</span>
+        <span class="area-tag">Orange Park</span>
+        <span class="area-tag">Jacksonville</span>
+        <span class="area-tag">Middleburg</span>
+        <span class="area-tag">Oakleaf</span>
+        <span class="area-tag">Mandarin</span>
+        <span class="area-tag">Ponte Vedra</span>
+        <span class="area-tag">St. Augustine</span>
+        <span class="area-tag">Green Cove Springs</span>
+        <span class="area-tag">+ Surrounding Areas</span>
+      </div>
+      <p class="area-note reveal">Within approximately 45 minutes of Fleming Island. Call or text to confirm your area.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container contact-inner">
+      <div class="reveal">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title">Ready for a Fresh Clean?</h2>
+        <p>Fill out the form and we'll get back to you fast — usually within a couple hours. We're happy to answer any questions about the process, your carpets, or our schedule.</p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📱</div>
+          <div class="contact-detail-text">
+            <strong>Text or Call</strong>
+            <span>We respond fast to texts</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📧</div>
+          <div class="contact-detail-text">
+            <strong>Email</strong>
+            <span>For quotes & scheduling</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-text">
+            <strong>Service Area</strong>
+            <span>Northeast Florida · 45 min from 32043</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">⏱️</div>
+          <div class="contact-detail-text">
+            <strong>Response Time</strong>
+            <span>Usually within a few hours</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal reveal-delay-2">
+        <div class="form-title">Request a Free Quote</div>
+        <form id="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name *</label>
+              <input type="text" id="fname" name="firstName" required placeholder="Jane" />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name *</label>
+              <input type="text" id="lname" name="lastName" required placeholder="Smith" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(904) 555-0100" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="jane@email.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service">
+              <option value="">Select a package...</option>
+              <option value="starter">Starter — 2 Rooms ($120)</option>
+              <option value="standard">Standard — 3 Rooms ($135)</option>
+              <option value="whole-home">Whole Home ($199)</option>
+              <option value="not-sure">Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Anything we should know? (optional)</label>
+            <textarea id="message" name="message" placeholder="Pets, stains, number of rooms, preferred dates..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold form-submit">Send My Request →</button>
+          <p class="form-note">We'll reach out by phone or text — whichever you prefer.</p>
+        </form>
+        <div class="form-success" id="form-success">
+          <p>✅ Request received! We'll be in touch shortly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="logo.jpeg" alt="First Coast Carpet Care" />
+          <p>Modern carpet cleaning for Northeast Florida families. Fast-drying, eco-friendly, and built around your schedule.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#why">Why Choose Us</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#how">How It Works</a></li>
+            <li><a href="#area">Service Area</a></li>
+            <li><a href="#contact">Get a Quote</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Service Area</h4>
+          <ul>
+            <li><span>Fleming Island</span></li>
+            <li><span>Orange Park</span></li>
+            <li><span>Jacksonville</span></li>
+            <li><span>Middleburg & Oakleaf</span></li>
+            <li><span>Ponte Vedra & St. Augustine</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 First Coast Carpet Care · Northeast Florida</span>
+        <span class="footer-tagline">Modern Cleaning · Lasting Results · Healthier Home</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== NAV TOGGLE =====
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // ===== SCROLL REVEAL =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ===== NAVBAR SCROLL SHADOW =====
+    window.addEventListener('scroll', () => {
+      document.querySelector('.navbar').style.boxShadow = window.scrollY > 10
+        ? '0 4px 24px rgba(0,0,0,0.1)' : '0 2px 16px rgba(0,0,0,0.06)';
+    });
+
+    // ===== FORM SUBMIT (frontend demo — wire to backend/email service) =====
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('contact-form');
+      const success = document.getElementById('form-success');
+
+      // Collect data
+      const data = {
+        firstName: form.firstName.value,
+        lastName:  form.lastName.value,
+        phone:     form.phone.value,
+        email:     form.email.value,
+        service:   form.service.value,
+        message:   form.message.value,
+      };
+      console.log('Form submission:', data);
+
+      // TODO: Replace with actual endpoint (Formspree, EmailJS, Netlify Forms, etc.)
+      // Example with Formspree:
+      // fetch('https://formspree.io/f/YOUR_FORM_ID', { method: 'POST', body: JSON.stringify(data), headers: {'Content-Type':'application/json'} })
+
+      // Show success state
+      form.style.display = 'none';
+      success.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
