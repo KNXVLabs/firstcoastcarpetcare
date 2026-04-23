@@ -177,6 +177,12 @@
       padding: 80px 0;
       padding-left: clamp(16px, 5vw, 72px);
     }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -185,7 +191,6 @@
       border: 1px solid rgba(201,162,39,0.4);
       border-radius: 100px;
       padding: 6px 16px;
-      margin-bottom: 28px;
       font-family: 'Montserrat', sans-serif;
       font-size: 0.78rem;
       font-weight: 700;
@@ -193,7 +198,44 @@
       color: var(--gold-light);
       text-transform: uppercase;
     }
+    .hero-badge-veteran {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.85);
+    }
     .hero-badge span { font-size: 1rem; }
+
+    /* ===== IICRC CERT STRIP ===== */
+    .cert-strip {
+      background: var(--navy-dark);
+      padding: 40px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .cert-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .cert-badge img {
+      height: 90px;
+      width: auto;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+    }
+    .cert-text strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .cert-text span {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
     .hero h1 {
       font-size: clamp(2.2rem, 6vw, 3.8rem);
       font-weight: 900;
@@ -810,7 +852,10 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="container hero-content">
-      <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
+      <div class="hero-badges">
+        <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
+        <div class="hero-badge hero-badge-veteran"><span>🎖️</span> Veteran Owned &amp; Operated</div>
+      </div>
       <h1>Clean Carpets.<br><em>Dry in Hours,</em><br>Not Days.</h1>
       <p>We use advanced encapsulation technology — carpets are fresh, dry, and ready to walk on in 1–2 hours. Eco-friendly, pet & kid safe, and priced to fit any home.</p>
       <div class="hero-btns">
@@ -844,11 +889,11 @@
   <!-- TRUST BAR -->
   <div class="trust-bar">
     <div class="container trust-inner">
+      <div class="trust-item"><span class="icon">🎖️</span> Veteran Owned &amp; Operated</div>
       <div class="trust-item"><span class="icon">🌿</span> Eco-Friendly Formula</div>
       <div class="trust-item"><span class="icon">🐾</span> Pet & Kid Safe</div>
       <div class="trust-item"><span class="icon">⚡</span> Fast Dry Time</div>
-      <div class="trust-item"><span class="icon">🏠</span> Residential & Light Commercial</div>
-      <div class="trust-item"><span class="icon">✅</span> Satisfaction Guaranteed</div>
+      <div class="trust-item"><span class="icon">✅</span> IICRC Certified Firm</div>
     </div>
   </div>
 
@@ -1149,13 +1194,32 @@
     </div>
   </section>
 
+  <!-- IICRC CERT STRIP -->
+  <div class="cert-strip">
+    <div class="container cert-inner">
+      <div class="cert-badge">
+        <img src="iicrc-badge.png" alt="IICRC Certified Firm" />
+      </div>
+      <div class="cert-text">
+        <strong>IICRC Certified Firm</strong>
+        <span>First Coast Carpet Care meets the highest industry standards<br>for cleaning, restoration, and inspection excellence.</span>
+      </div>
+      <div class="cert-badge" style="opacity:0.75;">
+        <div style="text-align:center;">
+          <div style="font-size:2rem;margin-bottom:6px;">🎖️</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);line-height:1.4;">Veteran<br>Owned</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
           <img src="logo.jpeg" alt="First Coast Carpet Care" />
-          <p>Modern carpet cleaning for Northeast Florida families. Fast-drying, eco-friendly, and built around your schedule.</p>
+          <p>Veteran owned &amp; operated. Modern carpet cleaning for Northeast Florida families — fast-drying, eco-friendly, and built around your schedule.</p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
