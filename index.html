@@ -10,12 +10,16 @@
   <style>
     /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       font-family: 'Open Sans', sans-serif;
       color: #1a1a2e;
       background: #fff;
       line-height: 1.6;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+      overscroll-behavior-x: none;
     }
 
     /* ===== PALETTE ===== */
@@ -1268,13 +1272,17 @@
         ? '0 4px 24px rgba(0,0,0,0.1)' : '0 2px 16px rgba(0,0,0,0.06)';
     });
 
-    // ===== FORM SUBMIT (frontend demo — wire to backend/email service) =====
-    function handleSubmit(e) {
+    // ===== FORM SUBMIT (FormSubmit.co) =====
+    // NOTE: first live submission triggers a one-time activation email to the address below.
+    const FORM_EMAIL = 'kinexa69@gmail.com'; // TODO: swap to business email after testing
+    async function handleSubmit(e) {
       e.preventDefault();
       const form = document.getElementById('contact-form');
       const success = document.getElementById('form-success');
+      const btn = form.querySelector('.form-submit');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
 
-      // Collect data
       const data = {
         firstName: form.firstName.value,
         lastName:  form.lastName.value,
@@ -1282,16 +1290,24 @@
         email:     form.email.value,
         service:   form.service.value,
         message:   form.message.value,
+        _subject:  'New Quote Request — First Coast Carpet Care',
+        _template: 'table',
       };
-      console.log('Form submission:', data);
 
-      // TODO: Replace with actual endpoint (Formspree, EmailJS, Netlify Forms, etc.)
-      // Example with Formspree:
-      // fetch('https://formspree.io/f/YOUR_FORM_ID', { method: 'POST', body: JSON.stringify(data), headers: {'Content-Type':'application/json'} })
-
-      // Show success state
-      form.style.display = 'none';
-      success.style.display = 'block';
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) throw new Error('Request failed');
+        form.style.display = 'none';
+        success.style.display = 'block';
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Send My Request →';
+        alert('Sorry, something went wrong sending your request. Please text or call us instead.');
+      }
     }
   </script>
 
