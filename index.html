@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>First Coast Carpet Care | Modern Cleaning · Lasting Results · Healthier Home</title>
-  <meta name="description" content="Northeast Florida's fast-drying, eco-friendly carpet cleaning experts. Pet & kid safe. Starting at $120. Serving Fleming Island, Orange Park, Jacksonville & surrounding areas." />
+  <meta name="description" content="Northeast Florida's fast-drying, eco-friendly carpet cleaning. Pet & kid friendly. Starting at $120. Serving Fleming Island, Orange Park, Jacksonville & surrounding areas." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -157,13 +157,21 @@
 
     /* ===== HERO ===== */
     .hero {
-      min-height: 100vh;
+      min-height: 100svh;
       background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, #1a4a8a 100%);
       display: flex;
       align-items: center;
       padding-top: 72px;
       position: relative;
       overflow: hidden;
+    }
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
     }
     .hero::before {
       content: '';
@@ -178,14 +186,29 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      padding: 80px 0;
+      padding: 32px 0 52px;
       padding-left: clamp(16px, 5vw, 72px);
     }
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 28px;
+    /* Scrolling badge ticker */
+    .hero-ticker {
+      overflow: hidden;
+      max-width: 620px;
+      margin-bottom: 20px;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+    .ticker-track {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: ticker-scroll 30s linear infinite;
+      will-change: transform;
+    }
+    .ticker-track .hero-badge { margin-right: 12px; flex-shrink: 0; }
+    @keyframes ticker-scroll {
+      to { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-track { animation: none; }
     }
     .hero-badge {
       display: inline-flex;
@@ -241,10 +264,10 @@
       line-height: 1.5;
     }
     .hero h1 {
-      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 900;
       color: var(--white);
-      margin-bottom: 20px;
+      margin-bottom: 14px;
       max-width: 720px;
     }
     .hero h1 em {
@@ -252,17 +275,17 @@
       color: var(--gold-light);
     }
     .hero p {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       color: rgba(255,255,255,0.78);
       max-width: 580px;
-      margin-bottom: 40px;
-      line-height: 1.7;
+      margin-bottom: 26px;
+      line-height: 1.65;
     }
     .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
     .hero-stats {
       display: flex;
-      gap: 40px;
-      margin-top: 64px;
+      gap: 36px;
+      margin-top: 36px;
       flex-wrap: wrap;
     }
     .hero-stat {
@@ -813,8 +836,13 @@
       }
       .nav-links.open .nav-cta { margin-left: 0; }
       .hamburger { display: flex; }
-      .hero h1 { font-size: 2rem; }
-      .hero-stats { gap: 24px; }
+      .hero h1 { font-size: 1.8rem; margin-bottom: 12px; }
+      .hero p { font-size: 0.95rem; margin-bottom: 20px; }
+      .hero-content { padding: 20px 0 44px; }
+      .hero-stats { gap: 18px; margin-top: 28px; }
+      .hero-stat strong { font-size: 1.4rem; }
+      .hero-stat { padding-left: 12px; }
+      .btn { padding: 12px 26px; font-size: 0.9rem; }
       .encap-inner { grid-template-columns: 1fr; gap: 40px; }
       .contact-inner { grid-template-columns: 1fr; gap: 40px; }
       .form-row { grid-template-columns: 1fr; }
@@ -855,13 +883,22 @@
 
   <!-- HERO -->
   <section class="hero" id="home">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
     <div class="container hero-content">
-      <div class="hero-badges">
-        <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
-        <div class="hero-badge hero-badge-veteran"><span>🎖️</span> Veteran Owned &amp; Operated</div>
+      <div class="hero-ticker" aria-label="Northeast Florida's Modern Carpet Care — Veteran Owned and Operated">
+        <div class="ticker-track" aria-hidden="true">
+          <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
+          <div class="hero-badge hero-badge-veteran"><span>🎖️</span> Veteran Owned &amp; Operated</div>
+          <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
+          <div class="hero-badge hero-badge-veteran"><span>🎖️</span> Veteran Owned &amp; Operated</div>
+          <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
+          <div class="hero-badge hero-badge-veteran"><span>🎖️</span> Veteran Owned &amp; Operated</div>
+          <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
+          <div class="hero-badge hero-badge-veteran"><span>🎖️</span> Veteran Owned &amp; Operated</div>
+        </div>
       </div>
       <h1>Clean Carpets.<br><em>Dry in Hours,</em><br>Not Days.</h1>
-      <p>We use advanced encapsulation technology — carpets are fresh, dry, and ready to walk on in 1–2 hours. Eco-friendly, pet & kid safe, and priced to fit any home.</p>
+      <p>We use advanced encapsulation technology — carpets are fresh, dry, and ready to walk on in 1–2 hours. Eco-friendly, pet & kid friendly, and priced to fit any home.</p>
       <div class="hero-btns">
         <a href="#contact" class="btn btn-gold">Book a Cleaning</a>
         <a href="#pricing" class="btn btn-outline">See Pricing</a>
@@ -876,8 +913,8 @@
           <span>Starting price</span>
         </div>
         <div class="hero-stat">
-          <strong>100%</strong>
-          <span>Eco-friendly solution</span>
+          <strong>Eco</strong>
+          <span>Friendly, low-odor formula</span>
         </div>
         <div class="hero-stat">
           <strong>NE FL</strong>
@@ -895,7 +932,7 @@
     <div class="container trust-inner">
       <div class="trust-item"><span class="icon">🎖️</span> Veteran Owned &amp; Operated</div>
       <div class="trust-item"><span class="icon">🌿</span> Eco-Friendly Formula</div>
-      <div class="trust-item"><span class="icon">🐾</span> Pet & Kid Safe</div>
+      <div class="trust-item"><span class="icon">🐾</span> Pet & Kid Friendly</div>
       <div class="trust-item"><span class="icon">⚡</span> Fast Dry Time</div>
       <div class="trust-item"><span class="icon">✅</span> IICRC Certified Firm</div>
     </div>
@@ -919,13 +956,13 @@
         <div class="why-card reveal reveal-delay-2">
           <div class="why-icon">🌿</div>
           <h3>Eco & Family Safe</h3>
-          <p>Our cleaning solution is biodegradable, non-toxic, and carries no harsh chemical smell. Safe for children, pets, and anyone with allergies or sensitivities.</p>
-          <span class="tag">Green-certified formula</span>
+          <p>Our cleaning solution is biodegradable, low-odor, and free of harsh chemical smells. A great fit for homes with kids, pets, and allergy sensitivities.</p>
+          <span class="tag">Eco-conscious formula</span>
         </div>
         <div class="why-card reveal reveal-delay-3">
           <div class="why-icon">🧬</div>
           <h3>Healthier Air Quality</h3>
-          <p>Encapsulation lifts allergens, dust mites, and trapped debris from carpet fibers — improving the air your family breathes every day.</p>
+          <p>Encapsulation lifts allergens, dust mites, and trapped debris from carpet fibers — helping improve the air your family breathes every day.</p>
           <span class="tag">Allergen reduction</span>
         </div>
         <div class="why-card reveal reveal-delay-4">
@@ -966,7 +1003,7 @@
           <ul class="price-features">
             <li><span class="check">✓</span> Any 2 rooms of your choice</li>
             <li><span class="check">✓</span> Encapsulation deep clean</li>
-            <li><span class="check">✓</span> Eco-friendly, pet-safe solution</li>
+            <li><span class="check">✓</span> Eco-friendly, pet-friendly solution</li>
             <li><span class="check">✓</span> Dry in 1–2 hours</li>
             <li><span class="check">✓</span> No residue or sticky finish</li>
           </ul>
@@ -980,7 +1017,7 @@
           <ul class="price-features">
             <li><span class="check">✓</span> Any 3 rooms of your choice</li>
             <li><span class="check">✓</span> Encapsulation deep clean</li>
-            <li><span class="check">✓</span> Eco-friendly, pet-safe solution</li>
+            <li><span class="check">✓</span> Eco-friendly, pet-friendly solution</li>
             <li><span class="check">✓</span> Dry in 1–2 hours</li>
             <li><span class="check">✓</span> No residue or sticky finish</li>
             <li><span class="check">✓</span> Spot treatment included</li>
@@ -994,7 +1031,7 @@
           <ul class="price-features">
             <li><span class="check">✓</span> Entire home (all carpeted rooms)</li>
             <li><span class="check">✓</span> Encapsulation deep clean</li>
-            <li><span class="check">✓</span> Eco-friendly, pet-safe solution</li>
+            <li><span class="check">✓</span> Eco-friendly, pet-friendly solution</li>
             <li><span class="check">✓</span> Dry in 1–2 hours</li>
             <li><span class="check">✓</span> No residue or sticky finish</li>
             <li><span class="check">✓</span> Spot & stain treatment included</li>
@@ -1061,8 +1098,8 @@
           <div class="compare-lose">24–48 hours</div>
         </div>
         <div class="compare-row">
-          <div class="compare-label">Pet Safe</div>
-          <div class="compare-win">Yes, always</div>
+          <div class="compare-label">Pet Friendly</div>
+          <div class="compare-win">Yes</div>
           <div class="compare-lose">Check chemicals</div>
         </div>
         <div class="compare-row">
@@ -1271,6 +1308,70 @@
       document.querySelector('.navbar').style.boxShadow = window.scrollY > 10
         ? '0 4px 24px rgba(0,0,0,0.1)' : '0 2px 16px rgba(0,0,0,0.06)';
     });
+
+    // ===== HERO BACKGROUND ANIMATION (subtle rising bubbles) =====
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const canvas = document.getElementById('hero-canvas');
+      const hero = document.querySelector('.hero');
+      if (!canvas || !hero) return;
+      const ctx = canvas.getContext('2d');
+      let w, h, bubbles;
+
+      function resize() {
+        w = canvas.width = hero.offsetWidth;
+        h = canvas.height = hero.offsetHeight;
+      }
+
+      function makeBubble(startAnywhere) {
+        return {
+          x: Math.random() * w,
+          y: startAnywhere ? Math.random() * h : h + 20,
+          r: 2 + Math.random() * 9,
+          speed: 0.15 + Math.random() * 0.35,
+          drift: (Math.random() - 0.5) * 0.15,
+          alpha: 0.03 + Math.random() * 0.07,
+          wobble: Math.random() * Math.PI * 2,
+        };
+      }
+
+      function init() {
+        resize();
+        bubbles = Array.from({ length: 26 }, () => makeBubble(true));
+      }
+
+      let running = true;
+      function frame() {
+        if (!running) return;
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < bubbles.length; i++) {
+          const b = bubbles[i];
+          b.y -= b.speed;
+          b.wobble += 0.008;
+          b.x += b.drift + Math.sin(b.wobble) * 0.12;
+          if (b.y < -20) bubbles[i] = makeBubble(false);
+          ctx.beginPath();
+          ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+          ctx.strokeStyle = 'rgba(255,255,255,' + b.alpha + ')';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+          ctx.fillStyle = 'rgba(255,255,255,' + (b.alpha * 0.35) + ')';
+          ctx.fill();
+        }
+        requestAnimationFrame(frame);
+      }
+
+      // Pause when hero is off-screen to save battery
+      new IntersectionObserver((entries) => {
+        const visible = entries[0].isIntersecting;
+        if (visible && !running) { running = true; frame(); }
+        else if (!visible) { running = false; }
+      }).observe(hero);
+
+      window.addEventListener('resize', init);
+      init();
+      frame();
+    })();
 
     // ===== FORM SUBMIT (FormSubmit.co) =====
     // NOTE: first live submission triggers a one-time activation email to the address below.
