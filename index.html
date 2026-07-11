@@ -10,16 +10,17 @@
   <style>
     /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; overflow-x: hidden; overscroll-behavior: none; }
+    /* overflow-x: clip clips horizontal overflow WITHOUT creating a scroll container
+       (overflow-x: hidden on body + overscroll-behavior on html breaks wheel scrolling) */
+    html { scroll-behavior: smooth; overflow-x: clip; overscroll-behavior-y: none; }
     body {
       font-family: 'Open Sans', sans-serif;
       color: #1a1a2e;
       background: #fff;
       line-height: 1.6;
-      overflow-x: hidden;
+      overflow-x: clip;
       width: 100%;
       max-width: 100vw;
-      overscroll-behavior: none;
     }
 
     /* ===== PALETTE ===== */
@@ -195,7 +196,7 @@
       background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, #1a4a8a 100%);
       display: flex;
       align-items: center;
-      padding-top: 72px;
+      padding-top: 118px; /* navbar (72) + ticker strip */
       position: relative;
       overflow: hidden;
     }
@@ -222,14 +223,17 @@
       z-index: 1;
       width: 100%;
       min-width: 0; /* allow flex item to shrink below the ticker's nowrap content width */
-      padding: 32px 24px 52px;
+      padding: 16px 24px 44px;
       padding-left: clamp(24px, 5vw, 72px);
     }
-    /* Scrolling badge ticker */
+    /* Scrolling badge ticker — pinned to the bottom of the fixed header */
     .hero-ticker {
+      position: absolute;
+      top: 72px;
+      left: 0; right: 0;
+      z-index: 1;
       overflow: hidden;
-      max-width: 620px;
-      margin-bottom: 20px;
+      padding: 12px 0;
       -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
       mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
     }
@@ -589,7 +593,10 @@
       border-color: var(--green);
       background: rgba(42,122,53,0.06);
     }
+    .form-checks { display: flex; gap: 10px; }
+    .form-checks .form-check { flex: 1 1 0; min-width: 0; justify-content: center; }
     /* attribute selector outranks the generic .form-group input rules below */
+    .form-check input[type="radio"],
     .form-check input[type="checkbox"] {
       width: 18px;
       height: 18px;
@@ -655,6 +662,12 @@
       line-height: 1.65;
     }
     .step-icon { font-size: 1.4rem; margin-bottom: 4px; }
+    .step p a {
+      color: var(--gold-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .step p a:hover { color: var(--white); }
 
     /* ===== ENCAP EXPLAINER ===== */
     .encap {
@@ -1214,19 +1227,19 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <canvas class="bubble-canvas" aria-hidden="true"></canvas>
-    <div class="container hero-content">
-      <div class="hero-ticker" aria-label="Northeast Florida's Modern Carpet Care — Veteran Owned and Operated">
-        <div class="ticker-track" aria-hidden="true">
-          <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
-          <div class="hero-badge hero-badge-veteran"><span>🎖️</span> Veteran Owned &amp; Operated</div>
-          <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
-          <div class="hero-badge hero-badge-veteran"><span>🎖️</span> Veteran Owned &amp; Operated</div>
-          <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
-          <div class="hero-badge hero-badge-veteran"><span>🎖️</span> Veteran Owned &amp; Operated</div>
-          <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
-          <div class="hero-badge hero-badge-veteran"><span>🎖️</span> Veteran Owned &amp; Operated</div>
-        </div>
+    <div class="hero-ticker" aria-label="Northeast Florida's Modern Carpet Care — Veteran Owned and Operated">
+      <div class="ticker-track" aria-hidden="true">
+        <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
+        <div class="hero-badge hero-badge-veteran"><span>🎖️</span> Veteran Owned &amp; Operated</div>
+        <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
+        <div class="hero-badge hero-badge-veteran"><span>🎖️</span> Veteran Owned &amp; Operated</div>
+        <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
+        <div class="hero-badge hero-badge-veteran"><span>🎖️</span> Veteran Owned &amp; Operated</div>
+        <div class="hero-badge"><span>🌊</span> Northeast Florida's Modern Carpet Care</div>
+        <div class="hero-badge hero-badge-veteran"><span>🎖️</span> Veteran Owned &amp; Operated</div>
       </div>
+    </div>
+    <div class="container hero-content">
       <h1>Clean Carpets.<br><em>Dry in Hours,</em><br>Not Days.</h1>
       <p>We use advanced encapsulation technology — carpets are fresh, dry, and ready to walk on in 1–2 hours. Eco-friendly, pet & kid friendly, and priced to fit any home.</p>
       <div class="hero-btns">
@@ -1243,8 +1256,8 @@
           <span>Starting price</span>
         </div>
         <div class="hero-stat">
-          <strong>Eco</strong>
-          <span>Friendly, low-odor formula</span>
+          <strong>Eco Friendly</strong>
+          <span>Non-toxic formula</span>
         </div>
         <div class="hero-stat">
           <strong>NE FL</strong>
@@ -1412,8 +1425,8 @@
         <div class="step reveal reveal-delay-1">
           <div class="step-icon">📋</div>
           <div class="step-num">1</div>
-          <h3>Book Online or by Text</h3>
-          <p>Fill out our quick contact form or send us a text. We'll confirm your appointment and answer any questions, usually within a few hours.</p>
+          <h3>Book Online</h3>
+          <p>Fill out our quick <a href="#contact">contact form</a> — we'll confirm your appointment and answer any questions, usually within a few hours.</p>
         </div>
         <div class="step reveal reveal-delay-2">
           <div class="step-icon">🚗</div>
@@ -1501,7 +1514,7 @@
         <span class="area-tag">Green Cove Springs</span>
         <span class="area-tag">+ Surrounding Areas</span>
       </div>
-      <p class="area-note reveal">Within approximately 45 minutes of Fleming Island. Call or text to confirm your area.</p>
+      <p class="area-note reveal">Within approximately 45 minutes of Fleming Island. Not sure about your area? Just ask in your quote request.</p>
     </div>
   </section>
 
@@ -1514,17 +1527,10 @@
         <p>Fill out the form and we'll get back to you fast — usually within a couple hours. We're happy to answer any questions about the process, your carpets, or our schedule.</p>
 
         <div class="contact-detail">
-          <div class="contact-detail-icon">📱</div>
-          <div class="contact-detail-text">
-            <strong>Text or Call</strong>
-            <span>We respond fast to texts</span>
-          </div>
-        </div>
-        <div class="contact-detail">
           <div class="contact-detail-icon">📧</div>
           <div class="contact-detail-text">
-            <strong>Email</strong>
-            <span>For quotes & scheduling</span>
+            <strong>Quote Requests</strong>
+            <span>Right here through our contact form</span>
           </div>
         </div>
         <div class="contact-detail">
@@ -1584,6 +1590,23 @@
             </div>
           </div>
           <div class="form-group">
+            <label>How would you prefer we contact you?</label>
+            <div class="form-checks">
+              <label class="form-check">
+                <input type="radio" name="contactMethod" value="Text" />
+                <span class="form-check-text">💬 Text</span>
+              </label>
+              <label class="form-check">
+                <input type="radio" name="contactMethod" value="Call" />
+                <span class="form-check-text">📞 Call</span>
+              </label>
+              <label class="form-check">
+                <input type="radio" name="contactMethod" value="Email" />
+                <span class="form-check-text">📧 Email</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
             <label>Add-Ons (optional)</label>
             <label class="form-check">
               <input type="checkbox" name="addons" value="High-Traffic Lane / Hall Treatment ($20)" />
@@ -1596,7 +1619,7 @@
             <textarea id="message" name="message" placeholder="Pets, stains, number of rooms, preferred dates..."></textarea>
           </div>
           <button type="submit" class="btn btn-gold form-submit">Send My Request →</button>
-          <p class="form-note">We'll reach out by phone or text — whichever you prefer.</p>
+          <p class="form-note">We'll reach out using your preferred contact method.</p>
         </form>
       </div>
     </div>
@@ -1833,6 +1856,7 @@
         email:     form.email.value,
         service:   form.service.value,
         zip:       form.zip.value,
+        preferredContact: (form.querySelector('input[name="contactMethod"]:checked') || {}).value || 'No preference',
         addons:    Array.from(form.querySelectorAll('input[name="addons"]:checked')).map(c => c.value).join(', ') || 'None',
         message:   form.message.value,
         _subject:  'New Quote Request — First Coast Carpet Care',
