@@ -180,7 +180,7 @@
 
     /* ===== HERO ===== */
     .hero {
-      min-height: 100svh;
+      min-height: 92svh;
       background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, #1a4a8a 100%);
       display: flex;
       align-items: center;
@@ -576,7 +576,7 @@
     }
     .compare-row {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       gap: 16px;
       padding: 14px 0;
       border-bottom: 1px solid rgba(13,45,107,0.07);
@@ -589,10 +589,15 @@
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      min-width: 90px;
+      flex: 0 0 90px;
+      display: flex;
+      align-items: center;
     }
     .compare-win {
-      flex: 1;
+      flex: 1 1 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: rgba(42,122,53,0.1);
       color: var(--green);
       border-radius: 6px;
@@ -602,7 +607,10 @@
       text-align: center;
     }
     .compare-lose {
-      flex: 1;
+      flex: 1 1 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: rgba(90,100,120,0.07);
       color: var(--muted);
       border-radius: 6px;
@@ -619,9 +627,12 @@
       margin-bottom: 4px;
       border-bottom: 2px solid rgba(13,45,107,0.1);
     }
-    .compare-header-label { min-width: 90px; }
+    .compare-header-label { flex: 0 0 90px; }
     .compare-header-col {
-      flex: 1;
+      flex: 1 1 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
       font-family: 'Montserrat', sans-serif;
       font-size: 0.72rem;
       font-weight: 700;
@@ -724,37 +735,46 @@
     .contact-form-wrap {
       background: var(--white);
       border-radius: 16px;
-      padding: 48px 40px;
+      padding: 30px 32px 26px;
       box-shadow: 0 4px 32px rgba(13,45,107,0.08);
       border: 1px solid rgba(13,45,107,0.07);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-form-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light) 40%, var(--ocean));
     }
     .form-title {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 800;
       color: var(--navy);
-      margin-bottom: 28px;
+      margin-bottom: 16px;
     }
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 14px;
     }
-    .form-group { margin-bottom: 18px; }
+    .form-group { margin-bottom: 12px; }
     .form-group label {
       display: block;
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       color: var(--navy);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      margin-bottom: 7px;
+      margin-bottom: 5px;
     }
     .form-group input,
     .form-group select,
     .form-group textarea {
       width: 100%;
-      padding: 12px 16px;
+      padding: 10px 14px;
       border: 1.5px solid rgba(13,45,107,0.15);
       border-radius: 8px;
       font-family: 'Open Sans', sans-serif;
@@ -770,10 +790,10 @@
       border-color: var(--ocean);
       box-shadow: 0 0 0 3px rgba(26,127,181,0.12);
     }
-    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group textarea { resize: vertical; min-height: 68px; }
     .form-group select { appearance: none; cursor: pointer; }
-    .form-submit { width: 100%; margin-top: 8px; font-size: 1rem; padding: 16px; }
-    .form-note { font-size: 0.78rem; color: var(--muted); text-align: center; margin-top: 12px; }
+    .form-submit { width: 100%; margin-top: 6px; font-size: 0.98rem; padding: 13px; }
+    .form-note { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 10px; }
     .form-success {
       display: none;
       background: rgba(42,122,53,0.08);
@@ -861,7 +881,7 @@
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 72px; left: 0; right: 0;
+        top: 100%; left: 0; right: 0;
         background: var(--white);
         padding: 20px 24px 28px;
         box-shadow: 0 8px 24px rgba(0,0,0,0.1);
@@ -888,7 +908,10 @@
       .hero-stat { padding-left: 12px; }
       .btn { padding: 12px 26px; font-size: 0.9rem; }
       .compare-row, .compare-header { gap: 8px; }
-      .compare-label, .compare-header-label { min-width: 68px; }
+      .compare-label, .compare-header-label { flex-basis: 74px; font-size: 0.7rem; }
+      .compare-win, .compare-lose { font-size: 0.8rem; padding: 6px 8px; }
+      .hero { min-height: 88svh; }
+      .contact-form-wrap { padding: 26px 20px 24px; }
       .encap-inner { grid-template-columns: 1fr; gap: 40px; }
       .contact-inner { grid-template-columns: 1fr; gap: 40px; }
       .form-row { grid-template-columns: 1fr; }
@@ -900,6 +923,29 @@
     /* ===== ANIMATIONS ===== */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-36px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal-right { opacity: 0; transform: translateX(36px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ===== SCROLL PROGRESS BAR ===== */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      z-index: 200;
+      pointer-events: none;
+    }
+
+    /* ===== NAVBAR SHRINK ON SCROLL ===== */
+    .nav-inner { transition: height 0.3s ease; }
+    .nav-logo img { transition: height 0.3s ease; }
+    .navbar.scrolled .nav-inner { height: 58px; }
+    .navbar.scrolled .nav-logo img { height: 42px; }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
@@ -908,8 +954,10 @@
 </head>
 <body>
 
+  <div class="scroll-progress" id="scroll-progress"></div>
+
   <!-- NAVBAR -->
-  <nav class="navbar">
+  <nav class="navbar" id="navbar">
     <div class="container nav-inner">
       <a href="#" class="nav-logo">
         <img src="logo.jpeg" alt="First Coast Carpet Care" />
@@ -1130,14 +1178,14 @@
   <!-- ENCAP EXPLAINER -->
   <section class="encap">
     <div class="container encap-inner">
-      <div class="reveal">
+      <div class="reveal-left">
         <span class="encap-tag">Why Encapsulation?</span>
         <h2 class="section-title">Not Your Typical Steam Clean</h2>
         <p>Most carpet cleaning companies use hot water extraction (steam). It works, but it soaks your carpet — and a wet carpet for 24+ hours is a breeding ground for mildew, odors, and re-soiling.</p>
         <p>Our encapsulation solution minimizes water saturation, using carbonation and a plant-based polymer to bring dirt to the surface, crystallize it, and make it easy to vacuum away. The result is a deeper clean that stays cleaner longer — without the downsides.</p>
         <a href="#contact" class="btn btn-navy">Experience the Difference</a>
       </div>
-      <div class="encap-visual reveal reveal-delay-2">
+      <div class="encap-visual reveal-right">
         <div class="compare-header">
           <div class="compare-header-label"></div>
           <div class="compare-header-col col-us">Encapsulation ✓</div>
@@ -1204,7 +1252,7 @@
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="container contact-inner">
-      <div class="reveal">
+      <div class="reveal-left">
         <span class="section-label">Get in Touch</span>
         <h2 class="section-title">Ready for a Fresh Clean?</h2>
         <p>Fill out the form and we'll get back to you fast — usually within a couple hours. We're happy to answer any questions about the process, your carpets, or our schedule.</p>
@@ -1239,7 +1287,7 @@
         </div>
       </div>
 
-      <div class="contact-form-wrap reveal reveal-delay-2">
+      <div class="contact-form-wrap reveal-right">
         <div class="form-title">Request a Free Quote</div>
         <form id="contact-form" onsubmit="handleSubmit(event)">
           <div class="form-row">
@@ -1353,13 +1401,42 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 
-    // ===== NAVBAR SCROLL SHADOW =====
-    window.addEventListener('scroll', () => {
-      document.querySelector('.navbar').style.boxShadow = window.scrollY > 10
-        ? '0 4px 24px rgba(0,0,0,0.1)' : '0 2px 16px rgba(0,0,0,0.06)';
-    });
+    // ===== SCROLL EFFECTS (navbar shrink, progress bar, hero parallax) =====
+    (function () {
+      const navbar = document.getElementById('navbar');
+      const progress = document.getElementById('scroll-progress');
+      const heroContent = document.querySelector('.hero-content');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let ticking = false;
+
+      function onScroll() {
+        const y = window.scrollY;
+
+        // Navbar shrink + shadow
+        navbar.classList.toggle('scrolled', y > 40);
+        navbar.style.boxShadow = y > 10
+          ? '0 4px 24px rgba(0,0,0,0.1)' : '0 2px 16px rgba(0,0,0,0.06)';
+
+        // Scroll progress bar
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+
+        // Gentle hero parallax
+        if (!reduceMotion && heroContent && y < window.innerHeight) {
+          heroContent.style.transform = 'translateY(' + (y * 0.16) + 'px)';
+          heroContent.style.opacity = Math.max(0, 1 - y / (window.innerHeight * 0.9));
+        }
+
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+      }, { passive: true });
+      onScroll();
+    })();
 
     // ===== BUBBLE BACKGROUNDS (subtle rising bubbles with shine) =====
     (function () {
