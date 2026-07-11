@@ -160,6 +160,17 @@
     }
     .nav-links a:hover { color: var(--ocean); }
     .nav-cta { margin-left: 8px; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      line-height: 1;
+      padding: 4px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .theme-toggle:hover { transform: rotate(-16deg) scale(1.12); }
     .hamburger {
       display: none;
       flex-direction: column;
@@ -1076,6 +1087,64 @@
       .trust-inner { gap: 20px; }
     }
 
+    /* ===== NIGHT MODE ===== */
+    body, .navbar, .why, .pricing, .encap, .area, .contact,
+    .why-card, .price-card, .encap-visual, .contact-form-wrap,
+    .addons, .addon-item, .area-tag,
+    .form-group input, .form-group select, .form-group textarea {
+      transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+    }
+    body.dark { background: #0a1226; color: #dfe5f2; }
+    body.dark .navbar { background: #0e1a3d; border-bottom-color: rgba(255,255,255,0.08); }
+    body.dark .nav-links a { color: #dfe5f2; }
+    body.dark .nav-links.open { background: #0e1a3d; border-top-color: rgba(255,255,255,0.08); }
+    body.dark .hamburger span { background: #dfe5f2; }
+    body.dark .wm-top { color: #eef1f9; }
+    body.dark .why, body.dark .encap, body.dark .contact { background: #0a1226; }
+    body.dark .pricing, body.dark .area { background: #0d1730; }
+    body.dark .section-title, body.dark .form-title, body.dark .price-amount { color: #eef1f9; }
+    body.dark .section-sub, body.dark .why-card p, body.dark .price-desc,
+    body.dark .encap p, body.dark .contact-info p, body.dark .area-note,
+    body.dark .contact-detail-text span, body.dark .form-note, body.dark .price-note,
+    body.dark .price-card h3, body.dark .compare-label, body.dark .addon-text span { color: #98a4c4; }
+    body.dark .why-card, body.dark .price-card, body.dark .encap-visual,
+    body.dark .contact-form-wrap, body.dark .addon-item {
+      background: #121f45;
+      border-color: rgba(255,255,255,0.1);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+    }
+    body.dark .why-card h3, body.dark .addon-text strong,
+    body.dark .contact-detail-text strong, body.dark .form-group label { color: #dfe5f2; }
+    body.dark .addons { background: #0e1a3d; border-color: rgba(255,255,255,0.08); }
+    body.dark .addon-price, body.dark .form-check .price {
+      color: var(--gold-light);
+      background: rgba(201,162,39,0.15);
+    }
+    body.dark .form-check .price { background: none; }
+    body.dark .area-tag { background: #121f45; border-color: rgba(255,255,255,0.12); color: #dfe5f2; }
+    body.dark .form-group input, body.dark .form-group select, body.dark .form-group textarea {
+      background: #0e1a3d;
+      border-color: rgba(255,255,255,0.18);
+      color: #eef1f9;
+    }
+    body.dark .form-group input::placeholder, body.dark .form-group textarea::placeholder { color: #5f6b8d; }
+    body.dark .form-check { border-color: rgba(255,255,255,0.18); color: #dfe5f2; }
+    body.dark .form-check:has(input:checked) { background: rgba(42,122,53,0.18); }
+    body.dark .price-features li { color: #dfe5f2; border-bottom-color: rgba(255,255,255,0.07); }
+    body.dark .compare-row, body.dark .compare-header { border-bottom-color: rgba(255,255,255,0.1); }
+    body.dark .compare-win { background: rgba(42,122,53,0.25); color: #7fd88b; }
+    body.dark .compare-lose { background: rgba(255,255,255,0.06); color: #8e97ad; }
+    body.dark .col-us { color: #7fd88b; }
+    body.dark .col-steam { color: #8e97ad; }
+    body.dark .why-card .tag, body.dark .encap-tag { background: rgba(42,122,53,0.22); color: #7fd88b; border-color: rgba(127,216,139,0.35); }
+    body.dark .btn-navy { background: #1a4a8a; }
+    body.dark .btn-navy:hover { background: #16408f; }
+    body.dark .modal-card { background: #121f45; }
+    body.dark .modal-card h3 { color: #eef1f9; }
+    body.dark .modal-card > p { color: #98a4c4; }
+    body.dark .modal-timer { color: #98a4c4; }
+    body.dark .modal-timer span { color: #eef1f9; }
+
     /* ===== ANIMATIONS ===== */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -1122,16 +1191,19 @@
           <span class="wm-bottom">Carpet Care</span>
         </span>
       </a>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#why">Why Us</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#how">How It Works</a></li>
-        <li><a href="#area">Service Area</a></li>
-        <li class="nav-cta"><a href="#contact" class="btn btn-gold">Get a Free Quote</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-right">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#why">Why Us</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#area">Service Area</a></li>
+          <li class="nav-cta"><a href="#contact" class="btn btn-gold">Get a Free Quote</a></li>
+        </ul>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle night mode">🌙</button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -1598,6 +1670,26 @@
     const navLinks = document.getElementById('nav-links');
     hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
     document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // ===== NIGHT MODE TOGGLE =====
+    (function () {
+      const toggle = document.getElementById('theme-toggle');
+      let dark = false;
+      try { dark = localStorage.getItem('fccc-theme') === 'dark'; } catch (e) {}
+
+      function applyTheme() {
+        document.body.classList.toggle('dark', dark);
+        toggle.textContent = dark ? '☀️' : '🌙';
+        toggle.setAttribute('aria-label', dark ? 'Switch to day mode' : 'Switch to night mode');
+      }
+
+      toggle.addEventListener('click', () => {
+        dark = !dark;
+        try { localStorage.setItem('fccc-theme', dark ? 'dark' : 'light'); } catch (e) {}
+        applyTheme();
+      });
+      applyTheme();
+    })();
 
     // ===== SCROLL REVEAL =====
     const observer = new IntersectionObserver((entries) => {
