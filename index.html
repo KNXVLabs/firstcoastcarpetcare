@@ -1247,7 +1247,7 @@
         <div class="price-card featured reveal reveal-delay-2">
           <div class="featured-badge">Most Popular</div>
           <h3>3 Bedrooms</h3>
-          <div class="price-amount"><sup>$</sup>150</div>
+          <div class="price-amount"><sup>$</sup>140</div>
           <p class="price-desc">The sweet spot — covers most homes' bedrooms comfortably.</p>
           <ul class="price-features">
             <li><span class="check">✓</span> Any 3 bedrooms</li>
@@ -1260,7 +1260,7 @@
         </div>
         <div class="price-card reveal reveal-delay-3">
           <h3>4 Bedrooms</h3>
-          <div class="price-amount"><sup>$</sup>175</div>
+          <div class="price-amount"><sup>$</sup>155</div>
           <p class="price-desc">Bigger home? Four bedrooms cleaned in a single visit.</p>
           <ul class="price-features">
             <li><span class="check">✓</span> Any 4 bedrooms</li>
@@ -1288,14 +1288,6 @@
       <div class="addons reveal">
         <div class="addons-label">Add-Ons</div>
         <div class="addon-items">
-          <div class="addon-item">
-            <span class="addon-icon">🪜</span>
-            <div class="addon-text">
-              <strong>Flight of Stairs</strong>
-              <span>Full encapsulation clean, per flight</span>
-            </div>
-            <span class="addon-price">$20</span>
-          </div>
           <div class="addon-item">
             <span class="addon-icon">👣</span>
             <div class="addon-text">
@@ -1479,29 +1471,29 @@
               <input type="email" id="email" name="email" placeholder="jane@email.com" />
             </div>
           </div>
-          <div class="form-group">
-            <label for="service">Service Needed</label>
-            <select id="service" name="service">
-              <option value="">Select a package...</option>
-              <option value="1-2-bedrooms">1–2 Bedrooms ($125)</option>
-              <option value="3-bedrooms">3 Bedrooms ($150)</option>
-              <option value="4-bedrooms">4 Bedrooms ($175)</option>
-              <option value="5-plus-whole-home">5+ Bedrooms / Entire House ($199)</option>
-              <option value="not-sure">Not sure yet</option>
-            </select>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service">
+                <option value="">Select a package...</option>
+                <option value="1-2-bedrooms">1–2 Bedrooms ($125)</option>
+                <option value="3-bedrooms">3 Bedrooms ($140)</option>
+                <option value="4-bedrooms">4 Bedrooms ($155)</option>
+                <option value="5-plus-whole-home">5+ Bedrooms / Entire House ($199)</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="zip">ZIP Code *</label>
+              <input type="text" id="zip" name="zip" required inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="32043" title="5-digit ZIP code" />
+            </div>
           </div>
           <div class="form-group">
             <label>Add-Ons (optional)</label>
-            <div class="form-row">
-              <label class="form-check">
-                <input type="checkbox" name="addons" value="Flight of Stairs ($20)" />
-                🪜 Flight of Stairs <span class="price">$20</span>
-              </label>
-              <label class="form-check">
-                <input type="checkbox" name="addons" value="High-Traffic Lane / Hall Treatment ($20)" />
-                👣 High-Traffic Lane / Hall <span class="price">$20</span>
-              </label>
-            </div>
+            <label class="form-check">
+              <input type="checkbox" name="addons" value="High-Traffic Lane / Hall Treatment ($20)" />
+              👣 High-Traffic Lane / Hall Treatment <span class="price">$20</span>
+            </label>
           </div>
           <div class="form-group">
             <label for="message">Anything we should know? (optional)</label>
@@ -1724,6 +1716,7 @@
         phone:     form.phone.value,
         email:     form.email.value,
         service:   form.service.value,
+        zip:       form.zip.value,
         addons:    Array.from(form.querySelectorAll('input[name="addons"]:checked')).map(c => c.value).join(', ') || 'None',
         message:   form.message.value,
         _subject:  'New Quote Request — First Coast Carpet Care',
