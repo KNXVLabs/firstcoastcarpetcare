@@ -120,6 +120,29 @@
       height: 54px;
       width: auto;
     }
+    .nav-wordmark {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .wm-top {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: 0.01em;
+    }
+    .wm-top em {
+      font-style: normal;
+      color: var(--ocean);
+    }
+    .wm-bottom {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+    }
     .nav-links {
       display: flex;
       align-items: center;
@@ -165,7 +188,7 @@
       position: relative;
       overflow: hidden;
     }
-    #hero-canvas {
+    .bubble-canvas {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -186,8 +209,8 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      padding: 32px 0 52px;
-      padding-left: clamp(16px, 5vw, 72px);
+      padding: 32px 24px 52px;
+      padding-left: clamp(24px, 5vw, 72px);
     }
     /* Scrolling badge ticker */
     .hero-ticker {
@@ -397,7 +420,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
-      align-items: start;
+      align-items: stretch;
     }
     .price-card {
       border-radius: 14px;
@@ -405,7 +428,10 @@
       border: 2px solid rgba(13,45,107,0.1);
       position: relative;
       transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
     }
+    .price-card > .btn { margin-top: auto; }
     .price-card:hover { transform: translateY(-4px); }
     .price-card.featured {
       border-color: var(--gold);
@@ -764,7 +790,11 @@
     .footer {
       background: var(--navy-dark);
       padding: 48px 0 28px;
+      position: relative;
+      overflow: hidden;
     }
+    .how .container,
+    .footer .container { position: relative; z-index: 1; }
     .footer-inner {
       display: grid;
       grid-template-columns: 1.4fr 1fr 1fr;
@@ -838,7 +868,10 @@
       .hamburger { display: flex; }
       .hero h1 { font-size: 1.8rem; margin-bottom: 12px; }
       .hero p { font-size: 0.95rem; margin-bottom: 20px; }
-      .hero-content { padding: 20px 0 44px; }
+      .hero-content { padding: 20px 20px 44px; }
+      .hero-ticker { max-width: 100%; }
+      .nav-wordmark .wm-top { font-size: 0.92rem; }
+      .nav-wordmark .wm-bottom { font-size: 0.64rem; letter-spacing: 0.16em; }
       .hero-stats { gap: 18px; margin-top: 28px; }
       .hero-stat strong { font-size: 1.4rem; }
       .hero-stat { padding-left: 12px; }
@@ -867,6 +900,10 @@
     <div class="container nav-inner">
       <a href="#" class="nav-logo">
         <img src="logo.jpeg" alt="First Coast Carpet Care" />
+        <span class="nav-wordmark">
+          <span class="wm-top">First <em>Coast</em></span>
+          <span class="wm-bottom">Carpet Care</span>
+        </span>
       </a>
       <ul class="nav-links" id="nav-links">
         <li><a href="#why">Why Us</a></li>
@@ -883,7 +920,7 @@
 
   <!-- HERO -->
   <section class="hero" id="home">
-    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <canvas class="bubble-canvas" aria-hidden="true"></canvas>
     <div class="container hero-content">
       <div class="hero-ticker" aria-label="Northeast Florida's Modern Carpet Care — Veteran Owned and Operated">
         <div class="ticker-track" aria-hidden="true">
@@ -956,8 +993,8 @@
         <div class="why-card reveal reveal-delay-2">
           <div class="why-icon">🌿</div>
           <h3>Eco & Family Safe</h3>
-          <p>Our cleaning solution is biodegradable, low-odor, and free of harsh chemical smells. A great fit for homes with kids, pets, and allergy sensitivities.</p>
-          <span class="tag">Eco-conscious formula</span>
+          <p>Our plant-based, biodegradable solution is low-odor and free of harsh chemical smells. A great fit for homes with kids, pets, and allergy sensitivities.</p>
+          <span class="tag">Plant-based polymer formula</span>
         </div>
         <div class="why-card reveal reveal-delay-3">
           <div class="why-icon">🧬</div>
@@ -1047,6 +1084,7 @@
 
   <!-- HOW IT WORKS -->
   <section class="how" id="how">
+    <canvas class="bubble-canvas" aria-hidden="true"></canvas>
     <div class="container">
       <div class="how-header reveal">
         <span class="section-label" style="color:var(--gold)">The Process</span>
@@ -1083,7 +1121,7 @@
         <span class="encap-tag">Why Encapsulation?</span>
         <h2 class="section-title">Not Your Typical Steam Clean</h2>
         <p>Most carpet cleaning companies use hot water extraction (steam). It works, but it soaks your carpet — and a wet carpet for 24+ hours is a breeding ground for mildew, odors, and re-soiling.</p>
-        <p>Encapsulation uses a low-moisture polymeric formula that surrounds dirt particles, crystallizes them, and makes them easy to vacuum away. The result is a deeper clean that stays cleaner longer — without the downsides.</p>
+        <p>Our encapsulation solution minimizes water saturation, using carbonation and a plant-based polymer to bring dirt to the surface, crystallize it, and make it easy to vacuum away. The result is a deeper clean that stays cleaner longer — without the downsides.</p>
         <a href="#contact" class="btn btn-navy">Experience the Difference</a>
       </div>
       <div class="encap-visual reveal reveal-delay-2">
@@ -1256,11 +1294,12 @@
 
   <!-- FOOTER -->
   <footer class="footer">
+    <canvas class="bubble-canvas" aria-hidden="true"></canvas>
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
           <img src="logo.jpeg" alt="First Coast Carpet Care" />
-          <p>Veteran owned &amp; operated. Modern carpet cleaning for Northeast Florida families — fast-drying, eco-friendly, and built around your schedule.</p>
+          <p style="font-style:italic;">"Providing reliable, fast-drying, and health-conscious carpet cleaning that fits real life — so your home or business stays clean, fresh, and ready to use without the wait."</p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -1309,68 +1348,83 @@
         ? '0 4px 24px rgba(0,0,0,0.1)' : '0 2px 16px rgba(0,0,0,0.06)';
     });
 
-    // ===== HERO BACKGROUND ANIMATION (subtle rising bubbles) =====
+    // ===== BUBBLE BACKGROUNDS (subtle rising bubbles with shine) =====
     (function () {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const canvas = document.getElementById('hero-canvas');
-      const hero = document.querySelector('.hero');
-      if (!canvas || !hero) return;
-      const ctx = canvas.getContext('2d');
-      let w, h, bubbles;
+      document.querySelectorAll('.bubble-canvas').forEach((canvas) => {
+        const section = canvas.parentElement;
+        const ctx = canvas.getContext('2d');
+        let w, h, bubbles, running = true;
 
-      function resize() {
-        w = canvas.width = hero.offsetWidth;
-        h = canvas.height = hero.offsetHeight;
-      }
-
-      function makeBubble(startAnywhere) {
-        return {
-          x: Math.random() * w,
-          y: startAnywhere ? Math.random() * h : h + 20,
-          r: 2 + Math.random() * 9,
-          speed: 0.15 + Math.random() * 0.35,
-          drift: (Math.random() - 0.5) * 0.15,
-          alpha: 0.03 + Math.random() * 0.07,
-          wobble: Math.random() * Math.PI * 2,
-        };
-      }
-
-      function init() {
-        resize();
-        bubbles = Array.from({ length: 26 }, () => makeBubble(true));
-      }
-
-      let running = true;
-      function frame() {
-        if (!running) return;
-        ctx.clearRect(0, 0, w, h);
-        for (let i = 0; i < bubbles.length; i++) {
-          const b = bubbles[i];
-          b.y -= b.speed;
-          b.wobble += 0.008;
-          b.x += b.drift + Math.sin(b.wobble) * 0.12;
-          if (b.y < -20) bubbles[i] = makeBubble(false);
-          ctx.beginPath();
-          ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
-          ctx.strokeStyle = 'rgba(255,255,255,' + b.alpha + ')';
-          ctx.lineWidth = 1;
-          ctx.stroke();
-          ctx.fillStyle = 'rgba(255,255,255,' + (b.alpha * 0.35) + ')';
-          ctx.fill();
+        function resize() {
+          w = canvas.width = section.offsetWidth;
+          h = canvas.height = section.offsetHeight;
         }
-        requestAnimationFrame(frame);
-      }
 
-      // Pause when hero is off-screen to save battery
-      new IntersectionObserver((entries) => {
-        const visible = entries[0].isIntersecting;
-        if (visible && !running) { running = true; frame(); }
-        else if (!visible) { running = false; }
-      }).observe(hero);
+        function makeBubble(startAnywhere) {
+          return {
+            x: Math.random() * w,
+            y: startAnywhere ? Math.random() * h : h + 20,
+            r: 2 + Math.random() * 9,
+            speed: 0.15 + Math.random() * 0.35,
+            drift: (Math.random() - 0.5) * 0.15,
+            alpha: 0.03 + Math.random() * 0.07,
+            wobble: Math.random() * Math.PI * 2,
+          };
+        }
 
-      window.addEventListener('resize', init);
-      init();
-      frame();
+        function init() {
+          resize();
+          const count = Math.min(30, Math.max(12, Math.round(h / 34)));
+          bubbles = Array.from({ length: count }, () => makeBubble(true));
+        }
+
+        function frame() {
+          if (!running) return;
+          ctx.clearRect(0, 0, w, h);
+          for (let i = 0; i < bubbles.length; i++) {
+            const b = bubbles[i];
+            b.y -= b.speed;
+            b.wobble += 0.008;
+            b.x += b.drift + Math.sin(b.wobble) * 0.12;
+            if (b.y < -20) bubbles[i] = makeBubble(false);
+
+            // Bubble body
+            ctx.beginPath();
+            ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255,255,255,' + (b.alpha * 0.3) + ')';
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(255,255,255,' + b.alpha + ')';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            // Shine: crescent highlight on upper-left rim
+            ctx.beginPath();
+            ctx.arc(b.x, b.y, b.r * 0.62, Math.PI * 1.05, Math.PI * 1.55);
+            ctx.strokeStyle = 'rgba(255,255,255,' + Math.min(0.3, b.alpha * 3) + ')';
+            ctx.lineWidth = 1.4;
+            ctx.stroke();
+
+            // Glint: tiny bright dot
+            ctx.beginPath();
+            ctx.arc(b.x - b.r * 0.35, b.y - b.r * 0.4, Math.max(0.6, b.r * 0.12), 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255,255,255,' + Math.min(0.35, b.alpha * 3.5) + ')';
+            ctx.fill();
+          }
+          requestAnimationFrame(frame);
+        }
+
+        // Pause when section is off-screen to save battery
+        new IntersectionObserver((entries) => {
+          const visible = entries[0].isIntersecting;
+          if (visible && !running) { running = true; frame(); }
+          else if (!visible) { running = false; }
+        }).observe(section);
+
+        window.addEventListener('resize', init);
+        init();
+        frame();
+      });
     })();
 
     // ===== FORM SUBMIT (FormSubmit.co) =====
