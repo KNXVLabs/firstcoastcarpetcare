@@ -794,20 +794,66 @@
     .form-group select { appearance: none; cursor: pointer; }
     .form-submit { width: 100%; margin-top: 6px; font-size: 0.98rem; padding: 13px; }
     .form-note { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 10px; }
-    .form-success {
+    /* ===== SUCCESS MODAL ===== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8,30,74,0.65);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       display: none;
-      background: rgba(42,122,53,0.08);
-      border: 1.5px solid rgba(42,122,53,0.3);
-      border-radius: 10px;
+      align-items: center;
+      justify-content: center;
+      z-index: 300;
       padding: 24px;
-      text-align: center;
-      margin-top: 16px;
     }
-    .form-success p {
+    .modal-overlay.show { display: flex; animation: modal-fade 0.3s ease; }
+    .modal-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 40px 32px 32px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 24px 80px rgba(8,30,74,0.4);
+      animation: modal-pop 0.35s cubic-bezier(0.2, 0.8, 0.3, 1.15);
+    }
+    .modal-check {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+      background: rgba(42,122,53,0.12);
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
       color: var(--green);
-      font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: 1rem;
+    }
+    .modal-card h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .modal-card > p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .modal-timer {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+    .modal-timer span { font-weight: 700; color: var(--navy); }
+    @keyframes modal-fade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes modal-pop {
+      from { transform: scale(0.88); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
     }
 
     /* ===== FOOTER ===== */
@@ -912,6 +958,10 @@
       .compare-win, .compare-lose { font-size: 0.8rem; padding: 6px 8px; }
       .hero { min-height: 88svh; }
       .contact-form-wrap { padding: 26px 20px 24px; }
+      /* 16px minimum prevents iOS from auto-zooming focused inputs (which breaks layout/panning) */
+      .form-group input,
+      .form-group select,
+      .form-group textarea { font-size: 16px; }
       .encap-inner { grid-template-columns: 1fr; gap: 40px; }
       .contact-inner { grid-template-columns: 1fr; gap: 40px; }
       .form-row { grid-template-columns: 1fr; }
@@ -1327,9 +1377,6 @@
           <button type="submit" class="btn btn-gold form-submit">Send My Request →</button>
           <p class="form-note">We'll reach out by phone or text — whichever you prefer.</p>
         </form>
-        <div class="form-success" id="form-success">
-          <p>✅ Request received! We'll be in touch shortly.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -1350,6 +1397,17 @@
           <div style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);line-height:1.4;">Veteran<br>Owned</div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-check">✓</div>
+      <h3 id="modal-title">Request Sent!</h3>
+      <p>Thanks for reaching out — we'll get back to you shortly, usually within a few hours. Keep an eye on your phone or inbox.</p>
+      <button class="btn btn-navy" id="modal-return">Return to Top</button>
+      <p class="modal-timer">Returning automatically in <span id="modal-count">10</span>s</p>
     </div>
   </div>
 
@@ -1519,11 +1577,10 @@
 
     // ===== FORM SUBMIT (FormSubmit.co) =====
     // NOTE: first live submission triggers a one-time activation email to the address below.
-    const FORM_EMAIL = 'kinexa69@gmail.com'; // TODO: swap to business email after testing
+    const FORM_EMAIL = 'Firstcoastcarpetcare904@gmail.com'; // client's business email
     async function handleSubmit(e) {
       e.preventDefault();
       const form = document.getElementById('contact-form');
-      const success = document.getElementById('form-success');
       const btn = form.querySelector('.form-submit');
       btn.disabled = true;
       btn.textContent = 'Sending...';
@@ -1537,7 +1594,13 @@
         message:   form.message.value,
         _subject:  'New Quote Request — First Coast Carpet Care',
         _template: 'table',
+        _cc: 'kinexa69@gmail.com',
       };
+
+      // Auto-confirmation email to the customer (only if they provided an email)
+      if (data.email) {
+        data._autoresponse = 'Thank you for contacting First Coast Carpet Care! Your quote request has been received and we will be contacting you shortly.\n\n— The First Coast Carpet Care Team\nModern Cleaning · Lasting Results · Healthier Home\nVeteran Owned & Operated · Serving Northeast Florida';
+      }
 
       try {
         const res = await fetch('https://formsubmit.co/ajax/' + FORM_EMAIL, {
@@ -1546,13 +1609,41 @@
           body: JSON.stringify(data),
         });
         if (!res.ok) throw new Error('Request failed');
-        form.style.display = 'none';
-        success.style.display = 'block';
+        form.reset();
+        showSuccessModal();
       } catch (err) {
+        alert('Sorry, something went wrong sending your request. Please text or call us instead.');
+      } finally {
         btn.disabled = false;
         btn.textContent = 'Send My Request →';
-        alert('Sorry, something went wrong sending your request. Please text or call us instead.');
       }
+    }
+
+    // ===== SUCCESS MODAL (overlay + countdown) =====
+    function showSuccessModal() {
+      const modal = document.getElementById('success-modal');
+      const count = document.getElementById('modal-count');
+      const returnBtn = document.getElementById('modal-return');
+      let secs = 10;
+      count.textContent = secs;
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+
+      const timer = setInterval(() => {
+        secs--;
+        count.textContent = secs;
+        if (secs <= 0) close();
+      }, 1000);
+
+      function close() {
+        clearInterval(timer);
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      returnBtn.onclick = close;
+      modal.onclick = (e) => { if (e.target === modal) close(); };
     }
   </script>
 
