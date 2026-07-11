@@ -1590,23 +1590,6 @@
             </div>
           </div>
           <div class="form-group">
-            <label>How would you prefer we contact you?</label>
-            <div class="form-checks">
-              <label class="form-check">
-                <input type="radio" name="contactMethod" value="Text" />
-                <span class="form-check-text">💬 Text</span>
-              </label>
-              <label class="form-check">
-                <input type="radio" name="contactMethod" value="Call" />
-                <span class="form-check-text">📞 Call</span>
-              </label>
-              <label class="form-check">
-                <input type="radio" name="contactMethod" value="Email" />
-                <span class="form-check-text">📧 Email</span>
-              </label>
-            </div>
-          </div>
-          <div class="form-group">
             <label>Add-Ons (optional)</label>
             <label class="form-check">
               <input type="checkbox" name="addons" value="High-Traffic Lane / Hall Treatment ($20)" />
@@ -1619,7 +1602,7 @@
             <textarea id="message" name="message" placeholder="Pets, stains, number of rooms, preferred dates..."></textarea>
           </div>
           <button type="submit" class="btn btn-gold form-submit">Send My Request →</button>
-          <p class="form-note">We'll reach out using your preferred contact method.</p>
+          <p class="form-note">We'll reach out shortly to confirm your quote.</p>
         </form>
       </div>
     </div>
@@ -1856,7 +1839,6 @@
         email:     form.email.value,
         service:   form.service.value,
         zip:       form.zip.value,
-        preferredContact: (form.querySelector('input[name="contactMethod"]:checked') || {}).value || 'No preference',
         addons:    Array.from(form.querySelectorAll('input[name="addons"]:checked')).map(c => c.value).join(', ') || 'None',
         message:   form.message.value,
         _subject:  'New Quote Request — First Coast Carpet Care',
