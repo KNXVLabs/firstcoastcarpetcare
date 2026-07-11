@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>First Coast Carpet Care | Modern Cleaning · Lasting Results · Healthier Home</title>
-  <meta name="description" content="Northeast Florida's fast-drying, eco-friendly carpet cleaning. Pet & kid friendly. Starting at $120. Serving Fleming Island, Orange Park, Jacksonville & surrounding areas." />
+  <meta name="description" content="Northeast Florida's fast-drying, eco-friendly carpet cleaning. Pet & kid friendly. Starting at $125. Serving Fleming Island, Orange Park, Jacksonville & surrounding areas." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -420,13 +420,13 @@
     .pricing-header { margin-bottom: 56px; }
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
       align-items: stretch;
     }
     .price-card {
       border-radius: 14px;
-      padding: 40px 32px;
+      padding: 34px 24px;
       border: 2px solid rgba(13,45,107,0.1);
       position: relative;
       transition: transform 0.2s, box-shadow 0.2s;
@@ -499,6 +499,93 @@
       margin-top: 16px;
       text-align: center;
     }
+
+    /* ===== ADD-ONS STRIP ===== */
+    .addons {
+      margin-top: 28px;
+      background: var(--light);
+      border: 1px solid rgba(13,45,107,0.08);
+      border-radius: 14px;
+      padding: 22px 26px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .addons-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .addon-items {
+      display: flex;
+      gap: 16px;
+      flex: 1;
+      flex-wrap: wrap;
+      min-width: 0;
+    }
+    .addon-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--white);
+      border: 1px solid rgba(13,45,107,0.1);
+      border-radius: 10px;
+      padding: 12px 16px;
+      flex: 1 1 260px;
+      min-width: 0;
+    }
+    .addon-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .addon-text { min-width: 0; }
+    .addon-text strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .addon-text span { font-size: 0.76rem; color: var(--muted); }
+    .addon-price {
+      margin-left: auto;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--navy);
+      background: rgba(201,162,39,0.18);
+      border-radius: 100px;
+      padding: 4px 14px;
+      flex-shrink: 0;
+    }
+
+    /* ===== FORM ADD-ON CHECKBOXES ===== */
+    .form-check {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.86rem;
+      color: var(--text);
+      border: 1.5px solid rgba(13,45,107,0.15);
+      border-radius: 8px;
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .form-check:has(input:checked) {
+      border-color: var(--green);
+      background: rgba(42,122,53,0.06);
+    }
+    .form-check input {
+      accent-color: var(--green);
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .form-check .price { margin-left: auto; font-weight: 700; color: var(--navy); font-size: 0.82rem; }
 
     /* ===== HOW IT WORKS ===== */
     .how {
@@ -1057,7 +1144,7 @@
           <span>Dry time</span>
         </div>
         <div class="hero-stat">
-          <strong>$120</strong>
+          <strong>$125</strong>
           <span>Starting price</span>
         </div>
         <div class="hero-stat">
@@ -1129,7 +1216,7 @@
           <div class="why-icon">💰</div>
           <h3>Transparent Pricing</h3>
           <p>No hidden fees, no upsells, no surprises. Flat-rate packages — you know exactly what you're paying before we arrive.</p>
-          <span class="tag">Starting at $120</span>
+          <span class="tag">Starting at $125</span>
         </div>
       </div>
     </div>
@@ -1145,46 +1232,78 @@
       </div>
       <div class="pricing-grid">
         <div class="price-card reveal reveal-delay-1">
-          <h3>Starter</h3>
-          <div class="price-amount"><sup>$</sup>120</div>
-          <p class="price-desc">Perfect for a quick refresh — living room + bedroom, or any 2 rooms.</p>
+          <h3>1–2 Bedrooms</h3>
+          <div class="price-amount"><sup>$</sup>125</div>
+          <p class="price-desc">Perfect for a quick refresh — one or two rooms of your choice.</p>
           <ul class="price-features">
-            <li><span class="check">✓</span> Any 2 rooms of your choice</li>
+            <li><span class="check">✓</span> Any 1–2 bedrooms</li>
             <li><span class="check">✓</span> Encapsulation deep clean</li>
             <li><span class="check">✓</span> Eco-friendly, pet-friendly solution</li>
             <li><span class="check">✓</span> Dry in 1–2 hours</li>
             <li><span class="check">✓</span> No residue or sticky finish</li>
           </ul>
-          <a href="#contact" class="btn btn-navy" style="width:100%;text-align:center;display:block;">Book Starter</a>
+          <a href="#contact" class="btn btn-navy" style="width:100%;text-align:center;display:block;">Book Now</a>
         </div>
         <div class="price-card featured reveal reveal-delay-2">
           <div class="featured-badge">Most Popular</div>
-          <h3>Standard</h3>
-          <div class="price-amount"><sup>$</sup>135</div>
-          <p class="price-desc">The sweet spot — 3 rooms covers most living spaces comfortably.</p>
+          <h3>3 Bedrooms</h3>
+          <div class="price-amount"><sup>$</sup>150</div>
+          <p class="price-desc">The sweet spot — covers most homes' bedrooms comfortably.</p>
           <ul class="price-features">
-            <li><span class="check">✓</span> Any 3 rooms of your choice</li>
+            <li><span class="check">✓</span> Any 3 bedrooms</li>
             <li><span class="check">✓</span> Encapsulation deep clean</li>
             <li><span class="check">✓</span> Eco-friendly, pet-friendly solution</li>
             <li><span class="check">✓</span> Dry in 1–2 hours</li>
-            <li><span class="check">✓</span> No residue or sticky finish</li>
             <li><span class="check">✓</span> Spot treatment included</li>
           </ul>
-          <a href="#contact" class="btn btn-gold" style="width:100%;text-align:center;display:block;">Book Standard</a>
+          <a href="#contact" class="btn btn-gold" style="width:100%;text-align:center;display:block;">Book Now</a>
         </div>
         <div class="price-card reveal reveal-delay-3">
-          <h3>Whole Home</h3>
+          <h3>4 Bedrooms</h3>
+          <div class="price-amount"><sup>$</sup>175</div>
+          <p class="price-desc">Bigger home? Four bedrooms cleaned in a single visit.</p>
+          <ul class="price-features">
+            <li><span class="check">✓</span> Any 4 bedrooms</li>
+            <li><span class="check">✓</span> Encapsulation deep clean</li>
+            <li><span class="check">✓</span> Eco-friendly, pet-friendly solution</li>
+            <li><span class="check">✓</span> Dry in 1–2 hours</li>
+            <li><span class="check">✓</span> Spot treatment included</li>
+          </ul>
+          <a href="#contact" class="btn btn-navy" style="width:100%;text-align:center;display:block;">Book Now</a>
+        </div>
+        <div class="price-card reveal reveal-delay-4">
+          <h3>5+ / Entire House</h3>
           <div class="price-amount"><sup>$</sup>199</div>
           <p class="price-desc">Full home refresh — every carpeted room, top to bottom.</p>
           <ul class="price-features">
-            <li><span class="check">✓</span> Entire home (all carpeted rooms)</li>
+            <li><span class="check">✓</span> 5+ bedrooms or whole home</li>
             <li><span class="check">✓</span> Encapsulation deep clean</li>
             <li><span class="check">✓</span> Eco-friendly, pet-friendly solution</li>
             <li><span class="check">✓</span> Dry in 1–2 hours</li>
-            <li><span class="check">✓</span> No residue or sticky finish</li>
             <li><span class="check">✓</span> Spot & stain treatment included</li>
           </ul>
-          <a href="#contact" class="btn btn-navy" style="width:100%;text-align:center;display:block;">Book Whole Home</a>
+          <a href="#contact" class="btn btn-navy" style="width:100%;text-align:center;display:block;">Book Now</a>
+        </div>
+      </div>
+      <div class="addons reveal">
+        <div class="addons-label">Add-Ons</div>
+        <div class="addon-items">
+          <div class="addon-item">
+            <span class="addon-icon">🪜</span>
+            <div class="addon-text">
+              <strong>Flight of Stairs</strong>
+              <span>Full encapsulation clean, per flight</span>
+            </div>
+            <span class="addon-price">$20</span>
+          </div>
+          <div class="addon-item">
+            <span class="addon-icon">👣</span>
+            <div class="addon-text">
+              <strong>High-Traffic Lane / Hall Treatment</strong>
+              <span>Extra pre-treatment for busy walkways</span>
+            </div>
+            <span class="addon-price">$20</span>
+          </div>
         </div>
       </div>
       <p class="price-note" style="text-align:center;margin-top:28px;color:var(--muted);font-size:0.83rem;">
@@ -1364,11 +1483,25 @@
             <label for="service">Service Needed</label>
             <select id="service" name="service">
               <option value="">Select a package...</option>
-              <option value="starter">Starter — 2 Rooms ($120)</option>
-              <option value="standard">Standard — 3 Rooms ($135)</option>
-              <option value="whole-home">Whole Home ($199)</option>
+              <option value="1-2-bedrooms">1–2 Bedrooms ($125)</option>
+              <option value="3-bedrooms">3 Bedrooms ($150)</option>
+              <option value="4-bedrooms">4 Bedrooms ($175)</option>
+              <option value="5-plus-whole-home">5+ Bedrooms / Entire House ($199)</option>
               <option value="not-sure">Not sure yet</option>
             </select>
+          </div>
+          <div class="form-group">
+            <label>Add-Ons (optional)</label>
+            <div class="form-row">
+              <label class="form-check">
+                <input type="checkbox" name="addons" value="Flight of Stairs ($20)" />
+                🪜 Flight of Stairs <span class="price">$20</span>
+              </label>
+              <label class="form-check">
+                <input type="checkbox" name="addons" value="High-Traffic Lane / Hall Treatment ($20)" />
+                👣 High-Traffic Lane / Hall <span class="price">$20</span>
+              </label>
+            </div>
           </div>
           <div class="form-group">
             <label for="message">Anything we should know? (optional)</label>
@@ -1591,6 +1724,7 @@
         phone:     form.phone.value,
         email:     form.email.value,
         service:   form.service.value,
+        addons:    Array.from(form.querySelectorAll('input[name="addons"]:checked')).map(c => c.value).join(', ') || 'None',
         message:   form.message.value,
         _subject:  'New Quote Request — First Coast Carpet Care',
         _template: 'table',
