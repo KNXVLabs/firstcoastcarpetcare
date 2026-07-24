@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>First Coast Carpet Care | Modern Cleaning · Lasting Results · Healthier Home</title>
-  <meta name="description" content="Northeast Florida's fast-drying, eco-friendly carpet cleaning. Pet & kid friendly. Starting at $125. Serving Fleming Island, Orange Park, Jacksonville & surrounding areas." />
+  <meta name="description" content="Northeast Florida's fast-drying, eco-friendly carpet cleaning. Pet & kid friendly. Serving Fleming Island, Orange Park, Jacksonville & surrounding areas." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -810,7 +810,7 @@
     }
     .contact-inner {
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
+      grid-template-columns: 1.4fr 1fr;
       gap: 64px;
       align-items: start;
     }
@@ -1252,8 +1252,8 @@
           <span>Dry time</span>
         </div>
         <div class="hero-stat">
-          <strong>$125</strong>
-          <span>Starting price</span>
+          <strong>Flat-Rate</strong>
+          <span>Simple pricing</span>
         </div>
         <div class="hero-stat">
           <strong>Eco Friendly</strong>
@@ -1280,6 +1280,96 @@
       <div class="trust-item"><span class="icon">✅</span> IICRC Certified Firm</div>
     </div>
   </div>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container contact-inner">
+      <div class="contact-form-wrap reveal-left">
+        <div class="form-title">Request a Free Quote</div>
+        <form id="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name *</label>
+              <input type="text" id="fname" name="firstName" required placeholder="Jane" />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name *</label>
+              <input type="text" id="lname" name="lastName" required placeholder="Smith" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(904) 555-0100" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="jane@email.com" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service">
+                <option value="">Select a package...</option>
+                <option value="1-2-bedrooms">1–2 Bedrooms</option>
+                <option value="3-bedrooms">3 Bedrooms</option>
+                <option value="4-bedrooms">4 Bedrooms</option>
+                <option value="5-plus-whole-home">5+ Bedrooms / Entire House</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="zip">ZIP Code *</label>
+              <input type="text" id="zip" name="zip" required inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="32043" title="5-digit ZIP code" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Add-Ons (optional)</label>
+            <label class="form-check">
+              <input type="checkbox" name="addons" value="High-Traffic Lane / Hall Treatment ($20)" />
+              <span class="form-check-text">👣 High-Traffic Lane / Hall Treatment</span>
+              <span class="price">$20</span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="message">Anything we should know? (optional)</label>
+            <textarea id="message" name="message" placeholder="Pets, stains, number of rooms, preferred dates..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold form-submit">Send My Request →</button>
+          <p class="form-note">We'll reach out shortly to confirm your quote.</p>
+        </form>
+      </div>
+
+      <div class="reveal-right">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title">Ready for a Fresh Clean?</h2>
+        <p>Fill out the form and we'll get back to you fast — usually within a couple hours. We're happy to answer any questions about the process, your carpets, or our schedule.</p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📧</div>
+          <div class="contact-detail-text">
+            <strong>Quote Requests</strong>
+            <span>Right here through our contact form</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-text">
+            <strong>Service Area</strong>
+            <span>Northeast Florida · 45 min from 32043</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">⏱️</div>
+          <div class="contact-detail-text">
+            <strong>Response Time</strong>
+            <span>Usually within a few hours</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- WHY US -->
   <section class="why" id="why">
@@ -1322,9 +1412,9 @@
         </div>
         <div class="why-card reveal reveal-delay-2">
           <div class="why-icon">💰</div>
-          <h3>Transparent Pricing</h3>
+          <h3>Simple Pricing</h3>
           <p>No hidden fees, no upsells, no surprises. Flat-rate packages — you know exactly what you're paying before we arrive.</p>
-          <span class="tag">Starting at $125</span>
+          <span class="tag">Flat-rate packages</span>
         </div>
       </div>
     </div>
@@ -1341,7 +1431,6 @@
       <div class="pricing-grid">
         <div class="price-card reveal reveal-delay-1">
           <h3>1–2 Bedrooms</h3>
-          <div class="price-amount"><sup>$</sup>125</div>
           <p class="price-desc">Perfect for a quick refresh — one or two rooms of your choice.</p>
           <ul class="price-features">
             <li><span class="check">✓</span> Any 1–2 bedrooms</li>
@@ -1355,7 +1444,6 @@
         <div class="price-card featured reveal reveal-delay-2">
           <div class="featured-badge">Most Popular</div>
           <h3>3 Bedrooms</h3>
-          <div class="price-amount"><sup>$</sup>140</div>
           <p class="price-desc">The sweet spot — covers most homes' bedrooms comfortably.</p>
           <ul class="price-features">
             <li><span class="check">✓</span> Any 3 bedrooms</li>
@@ -1368,7 +1456,6 @@
         </div>
         <div class="price-card reveal reveal-delay-3">
           <h3>4 Bedrooms</h3>
-          <div class="price-amount"><sup>$</sup>155</div>
           <p class="price-desc">Bigger home? Four bedrooms cleaned in a single visit.</p>
           <ul class="price-features">
             <li><span class="check">✓</span> Any 4 bedrooms</li>
@@ -1381,7 +1468,6 @@
         </div>
         <div class="price-card reveal reveal-delay-4">
           <h3>5+ / Entire House</h3>
-          <div class="price-amount"><sup>$</sup>199</div>
           <p class="price-desc">Full home refresh — every carpeted room, top to bottom.</p>
           <ul class="price-features">
             <li><span class="check">✓</span> 5+ bedrooms or whole home</li>
@@ -1515,96 +1601,6 @@
         <span class="area-tag">+ Surrounding Areas</span>
       </div>
       <p class="area-note reveal">Within approximately 45 minutes of Fleming Island. Not sure about your area? Just ask in your quote request.</p>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="container contact-inner">
-      <div class="reveal-left">
-        <span class="section-label">Get in Touch</span>
-        <h2 class="section-title">Ready for a Fresh Clean?</h2>
-        <p>Fill out the form and we'll get back to you fast — usually within a couple hours. We're happy to answer any questions about the process, your carpets, or our schedule.</p>
-
-        <div class="contact-detail">
-          <div class="contact-detail-icon">📧</div>
-          <div class="contact-detail-text">
-            <strong>Quote Requests</strong>
-            <span>Right here through our contact form</span>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-detail-icon">📍</div>
-          <div class="contact-detail-text">
-            <strong>Service Area</strong>
-            <span>Northeast Florida · 45 min from 32043</span>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-detail-icon">⏱️</div>
-          <div class="contact-detail-text">
-            <strong>Response Time</strong>
-            <span>Usually within a few hours</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-form-wrap reveal-right">
-        <div class="form-title">Request a Free Quote</div>
-        <form id="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fname">First Name *</label>
-              <input type="text" id="fname" name="firstName" required placeholder="Jane" />
-            </div>
-            <div class="form-group">
-              <label for="lname">Last Name *</label>
-              <input type="text" id="lname" name="lastName" required placeholder="Smith" />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="phone">Phone *</label>
-              <input type="tel" id="phone" name="phone" required placeholder="(904) 555-0100" />
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="jane@email.com" />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="service">Service Needed</label>
-              <select id="service" name="service">
-                <option value="">Select a package...</option>
-                <option value="1-2-bedrooms">1–2 Bedrooms ($125)</option>
-                <option value="3-bedrooms">3 Bedrooms ($140)</option>
-                <option value="4-bedrooms">4 Bedrooms ($155)</option>
-                <option value="5-plus-whole-home">5+ Bedrooms / Entire House ($199)</option>
-                <option value="not-sure">Not sure yet</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="zip">ZIP Code *</label>
-              <input type="text" id="zip" name="zip" required inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="32043" title="5-digit ZIP code" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Add-Ons (optional)</label>
-            <label class="form-check">
-              <input type="checkbox" name="addons" value="High-Traffic Lane / Hall Treatment ($20)" />
-              <span class="form-check-text">👣 High-Traffic Lane / Hall Treatment</span>
-              <span class="price">$20</span>
-            </label>
-          </div>
-          <div class="form-group">
-            <label for="message">Anything we should know? (optional)</label>
-            <textarea id="message" name="message" placeholder="Pets, stains, number of rooms, preferred dates..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold form-submit">Send My Request →</button>
-          <p class="form-note">We'll reach out shortly to confirm your quote.</p>
-        </form>
-      </div>
     </div>
   </section>
 
@@ -1861,11 +1857,38 @@
         form.reset();
         showSuccessModal();
       } catch (err) {
-        alert('Sorry, something went wrong sending your request. Please text or call us instead.');
+        // AJAX blocked (common with desktop ad-blockers/privacy extensions) —
+        // fall back to a native form POST, which returns to ?sent=1 on success
+        nativeFallbackSubmit(data);
+        return;
       } finally {
         btn.disabled = false;
         btn.textContent = 'Send My Request →';
       }
+    }
+
+    function nativeFallbackSubmit(data) {
+      data._next = window.location.origin + window.location.pathname + '?sent=1#contact';
+      data._captcha = 'false';
+      const f = document.createElement('form');
+      f.method = 'POST';
+      f.action = 'https://formsubmit.co/' + FORM_EMAIL;
+      f.style.display = 'none';
+      Object.entries(data).forEach(([k, v]) => {
+        const i = document.createElement('input');
+        i.type = 'hidden';
+        i.name = k;
+        i.value = v;
+        f.appendChild(i);
+      });
+      document.body.appendChild(f);
+      f.submit();
+    }
+
+    // Returning from the native fallback? Show the confirmation modal.
+    if (new URLSearchParams(window.location.search).get('sent') === '1') {
+      history.replaceState(null, '', window.location.pathname + '#contact');
+      showSuccessModal();
     }
 
     // ===== SUCCESS MODAL (overlay + countdown) =====
